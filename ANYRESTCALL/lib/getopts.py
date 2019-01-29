@@ -100,7 +100,7 @@ class GetOpts(object):
     _inputopt = InputOpts()
     _inputopt.optname = 'l'
     _inputopt.longoptname = 'log'
-    _inputopt.longdes = 'name of the log file, optiona'
+    _inputopt.longdes = 'name of the log file, optional'
     _inputopt.shortdes = 'logfile'
     optionlist.append(_inputopt)
     optionnamelist.append(_inputopt.optname) 
