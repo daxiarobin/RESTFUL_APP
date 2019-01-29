@@ -1,0 +1,34 @@
+Introduction: execute any RESTFUL operation (get|post) towards the given server based on given uri(s)
+
+
+Usage:
+
+restcall   [-s <server address>] [-p <server port>] [-u <uri>] 
+	   [-f <uri list file>] [-t <get|post>] [-d <get|post>] [-e <get|post>] 
+	   [-m <yes|no>] [-o <output directory>] [-l <logfile>] [-v <True|False>] 
+
+Options:
+
+     -s|--server (M):	ip address or server name of the target server which provides REST API
+
+       -p|--port (O):	REST API server port, default is 12443
+
+      -u|--uri (M|O):	single uri for REST API call,
+			Eg: com.oiforum.json/ndm/network/1/endpoint
+
+     -f|--file (M|O):	file contains the uri list for REST API call,
+			Eg: Eg: C:\data\mylist.txt
+
+       -t|--type (O):	REST call type, get or post, default is get
+
+       -d|--user (O):	user name for the REST call
+
+   -e|--password (O):	password for the REST call
+
+       -m|--mode (O):	secure (yes) or non-secure (no) mode for the REST call, default is yes
+
+     -o|--output (O):	output directory for all the results, default is ./output
+
+        -l|--log (O):	name of the log file, optiona
+
+     -v|--verify (O):	SSL certification verification, True or False. Default is False
