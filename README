@@ -1,0 +1,4 @@
+Introduction: RESTFULL applications writter in python
+
+ANYRESTCALL:
+	execute any restful operations (get or post) towards the target server based on the given uri(s)
