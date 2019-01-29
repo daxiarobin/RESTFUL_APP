@@ -48,15 +48,6 @@ def main():
     if result > 0:
         endprogramm.terminate(result,logfo)
         
-    
-    '''
-    usage = UsAge(argv,version,programmname)
-    result,securemode,httphead,server,port,urilist,opttype,username,\
-        password,outputdic,logfilepath,sslverification = usage.readInput()
- 
-    if result > 0:
-        endprogramm.terminate(result,logfo) 
-    '''
     try:
         logfo = open(logfilepath,'a')
     except Exception:
@@ -71,13 +62,15 @@ def main():
         restgetlisturi = \
             restGetListUri(opts.args.mode,opts.args.user,\
                            opts.args.password,\
-                                    opts.args.verify,logfo,fullurilist)
+                                    opts.args.verify,logfo,fullurilist,\
+                                    opts.args.verbose)
         restgetlisturi.restGetOperation()
-    else:
+    elif re.match('post',opts.args.type):
         fullurilist = constructlisturi.createfullurilistPost()
         restpostlisturi = restPostListUri(opts.args.mode,opts.args.user,\
                            opts.args.password,\
-                                    opts.args.verify,logfo,fullurilist)
+                                    opts.args.verify,logfo,fullurilist,\
+                                    opts.args.verbose)
         restpostlisturi.restPostOperation()
     
     

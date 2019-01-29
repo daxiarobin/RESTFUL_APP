@@ -1,1 +1,0 @@
-com.oiforum.json/ndm/network/1/endpoint

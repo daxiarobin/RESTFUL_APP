@@ -15,16 +15,17 @@ import time
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-class resetGetSingleUri(object):
-    def __init__(self,securemode,username,password,sslverification,logfo):
+class restGetSingleUri(object):
+    def __init__(self,securemode,username,password,sslverification,logfo,verbose):
         self.securemode = securemode
         self.username = username
         self.password = password
         self.sslverification = sslverification
         self.logfo = logfo
+        self.verbose = verbose
         self.fulluri = ""
         
-    def restGetOpreation(self,fulluri):
+    def restGetOperation(self,fulluri):
         self.fulluri = fulluri
         tmpstr = "REST GET Started: "+fulluri
         self.writeLog(self.logfo,tmpstr)
@@ -41,13 +42,13 @@ class resetGetSingleUri(object):
             tmpstr = "REST GET OK: "+fulluri
             self.writeLog(self.logfo,tmpstr)
             self.writeLogNotime(self.logfo,json.dumps(jData,sort_keys=True,indent=4))
-            print (tmpstr)
-            print (json.dumps(jData,sort_keys=True,indent=4))
         else:
             jData = None
             tmpstr = "REST GET Failed: "+fulluri
             self.writeLog(self.logfo,tmpstr)
-            print (tmpstr)
+        print (tmpstr)
+        if re.match('yes',self.verbose, flags=re.I):
+            print (json.dumps(jData,sort_keys=True,indent=4))
         return jData
     
     def getTimestamp(self):

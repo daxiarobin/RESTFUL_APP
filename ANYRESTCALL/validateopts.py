@@ -53,6 +53,8 @@ class validateOpts(object):
         if not bool(self.opts.args.verify):
             self.opts.args.verify = False
         
+        if not bool(self.opts.args.verbose):
+            self.opts.args.verbose = 'yes'
         '''
         addtional return values
         '''

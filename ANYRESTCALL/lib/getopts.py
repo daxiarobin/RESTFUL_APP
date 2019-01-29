@@ -111,7 +111,15 @@ class GetOpts(object):
     _inputopt.longdes = 'SSL certification verification, True or False. Default is False'
     _inputopt.shortdes = 'True|False'
     optionlist.append(_inputopt)
-    optionnamelist.append(_inputopt.optname)     
+    optionnamelist.append(_inputopt.optname)
+    
+    _inputopt = InputOpts()
+    _inputopt.optname = 'x'
+    _inputopt.longoptname = 'verbose'
+    _inputopt.longdes = 'whether to print the result on the screen, default is yes'
+    _inputopt.shortdes = 'yes|no'
+    optionlist.append(_inputopt)
+    optionnamelist.append(_inputopt.optname)    
     
     def __init__(self,version,programmname,optlist_add=[],optlist_del=[]):
         self.version = version
