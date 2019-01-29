@@ -77,6 +77,27 @@ class ErrorCode(object):
     WRONGSSLVERIFY = 13
     
     '''
+    REST GET fail
+    '''
+    RESTGETFAIL = 14
+    
+    '''
+    REST PUT fail
+    '''
+    RESTPUTFAIL = 15
+    
+    '''
+    REST POST fail
+    '''
+    RESTPOSTFAIL = 16
+    
+    '''
+    REST UPDATE fail
+    '''
+    RESTUPDATEFAIL = 17
+    
+    
+    '''
     Unknown error: 100
     Not sure what is the error, reserved as unknown
     '''

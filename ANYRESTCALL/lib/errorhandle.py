@@ -37,5 +37,9 @@ class Error(object):
             self.err.WRONGSECUREMODE: 'Error: securemode must be either yes or no',
             self.err.LOGFILEFAIL: 'Error: unable to create log file',
             self.err.WRONGSSLVERIFY:'Error: SSL verification must be True or False',
+            self.err.RESTGETFAIL:'Error: REST get operation fail',
+            self.err.RESTPUTFAIL: 'Error: REST put operation fail',
+            self.err.RESTPOSTFAIL: 'Error: REST post operation fail',
+            self.err.RESTUPDATEFAIL: 'Error: REST update operation fail',
             self.err.UNKNOWNERROR: 'Error: Unkown error'            
             }.get(code,"Error: Unknown error")
