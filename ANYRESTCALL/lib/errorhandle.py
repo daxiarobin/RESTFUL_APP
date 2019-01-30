@@ -42,5 +42,6 @@ class Error(object):
             self.err.RESTPOSTFAIL: 'Error: REST post operation fail',
             self.err.RESTUPDATEFAIL: 'Error: REST update operation fail',
             self.err.CONNFAIL: 'Error: unable to connect to server',
+            self.err.WRONGFORMAT: 'Error: input value does not meet the format requirement',
             self.err.UNKNOWNERROR: 'Error: Unkown error'            
             }.get(code,"Error: Unknown error")

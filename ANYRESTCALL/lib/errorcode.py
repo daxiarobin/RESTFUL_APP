@@ -100,6 +100,12 @@ class ErrorCode(object):
     unable to connect to RESTFUL server
     '''
     CONNFAIL = 18
+    
+    '''
+    Input args does not comply with the required format
+    '''
+    WRONGFORMAT = 90
+    
     '''
     Unknown error: 100
     Not sure what is the error, reserved as unknown
