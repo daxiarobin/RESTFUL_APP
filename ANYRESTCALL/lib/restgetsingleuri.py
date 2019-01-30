@@ -23,20 +23,32 @@ class restGetSingleUri(object):
         self.sslverification = sslverification
         self.logfo = logfo
         self.verbose = verbose
+        self.result = 0
         self.fulluri = ""
         
     def restGetOperation(self,fulluri):
         self.fulluri = fulluri
         tmpstr = "REST GET Started: "+fulluri
         self.writeLog(self.logfo,tmpstr)
-        print (tmpstr)
-        if re.match('yes',self.securemode,flags=re.I):
-            myResponse = requests.get(self.fulluri,\
-                                      auth=HTTPBasicAuth(self.username,self.password),\
-                                      verify=self.sslverification)
-        else:
-            myResponse = requests.get(self.fulluri,verify=self.sslverification)
+        if re.match('yes',self.verbose, flags=re.I):
+            print (tmpstr)
+        jData = None
         
+        if re.match('yes',self.securemode,flags=re.I):
+            try:
+                myResponse = requests.get(self.fulluri,\
+                                          auth=HTTPBasicAuth(self.username,self.password),\
+                                          verify=self.sslverification)
+            except Exception:
+                self.result = 18
+                return self.result,jData
+        else:
+            try:
+                myResponse = requests.get(self.fulluri,verify=self.sslverification)
+            except Exception:
+                self.result = 18
+                return self.result,jData
+            
         if (myResponse.ok):
             jData = json.loads(myResponse.content)
             tmpstr = "REST GET OK: "+fulluri
@@ -46,10 +58,11 @@ class restGetSingleUri(object):
             jData = None
             tmpstr = "REST GET Failed: "+fulluri
             self.writeLog(self.logfo,tmpstr)
-        print (tmpstr)
+        
         if re.match('yes',self.verbose, flags=re.I):
+            print (tmpstr)
             print (json.dumps(jData,sort_keys=True,indent=4))
-        return jData
+        return self.result, jData
     
     def getTimestamp(self):
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")

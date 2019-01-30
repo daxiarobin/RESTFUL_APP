@@ -21,9 +21,12 @@ class restGetListUri(object):
         self.restsingleuri = restGetSingleUri(securemode,username,password,\
                                                sslverification,logfo,self.verbose)
         self.jDataList = []
+        self.result = 0
     def restGetOperation(self):
         for fulluri in self.fullurilist:
-            jData = self.restsingleuri.restGetOperation(fulluri)
+            self.result, jData = self.restsingleuri.restGetOperation(fulluri)
+            if self.result > 0:
+                return self.result, self.jDataList
             self.jDataList.append(jData)
             
-        return self.jDataList
+        return self.result,self.jDataList

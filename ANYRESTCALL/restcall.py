@@ -64,14 +64,14 @@ def main():
                            opts.args.password,\
                                     opts.args.verify,logfo,fullurilist,\
                                     opts.args.verbose)
-        restgetlisturi.restGetOperation()
+        result,jDataList = restgetlisturi.restGetOperation()
     elif re.match('post',opts.args.type):
         fullurilist = constructlisturi.createfullurilistPost()
         restpostlisturi = restPostListUri(opts.args.mode,opts.args.user,\
                            opts.args.password,\
                                     opts.args.verify,logfo,fullurilist,\
                                     opts.args.verbose)
-        restpostlisturi.restPostOperation()
+        result,jDataList = restpostlisturi.restPostOperation()
     
     
     endprogramm.terminate(result,logfo)

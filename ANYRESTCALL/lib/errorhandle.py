@@ -41,5 +41,6 @@ class Error(object):
             self.err.RESTPUTFAIL: 'Error: REST put operation fail',
             self.err.RESTPOSTFAIL: 'Error: REST post operation fail',
             self.err.RESTUPDATEFAIL: 'Error: REST update operation fail',
+            self.err.CONNFAIL: 'Error: unable to connect to server',
             self.err.UNKNOWNERROR: 'Error: Unkown error'            
             }.get(code,"Error: Unknown error")

@@ -96,7 +96,10 @@ class ErrorCode(object):
     '''
     RESTUPDATEFAIL = 17
     
-    
+    '''
+    unable to connect to RESTFUL server
+    '''
+    CONNFAIL = 18
     '''
     Unknown error: 100
     Not sure what is the error, reserved as unknown
