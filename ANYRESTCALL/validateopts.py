@@ -95,7 +95,7 @@ class validateOpts(object):
             return 
     
         if bool(self.opts.args.uri):
-            self.urilist.append(elf.opts.args.uri.rstrip())
+            self.urilist.append(self.opts.args.uri.rstrip())
             
         if bool(self.opts.args.file):
             if not os.path.isfile(self.opts.args.file):
